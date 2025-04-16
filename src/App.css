@@ -1,38 +1,93 @@
+/* App.css */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Füllt die gesamte Höhe */
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  padding: 10px 20px;
+  color: white;
+  text-align: center;
+}
+
+.chat-window {
+  flex-grow: 1; /* Nimmt den verfügbaren Platz ein */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
+  overflow-y: hidden; /* Verhindert Scrollen des gesamten Fensters */
+  border: 1px solid #ccc;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.message-list {
+  flex-grow: 1; /* Nimmt Platz im Chatfenster ein */
+  overflow-y: auto; /* Ermöglicht Scrollen nur für Nachrichten */
+  margin-bottom: 15px;
+  padding-right: 10px; /* Platz für Scrollbar */
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 70%;
+  word-wrap: break-word; /* Lange Wörter umbrechen */
+}
+
+.message.user {
+  background-color: #007bff;
   color: white;
+  margin-left: auto; /* Schiebt User-Nachrichten nach rechts */
+  border-bottom-right-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.message.bot {
+  background-color: #e9e9eb;
+  color: #333;
+  margin-right: auto; /* Hält Bot-Nachrichten links */
+  border-bottom-left-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.typing-indicator {
+ font-style: italic;
+ color: #666;
+}
+
+.message-input-form {
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+}
+
+.message-input-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.message-input-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.message-input-form button:hover {
+  background-color: #0056b3;
+}
+
+.message-input-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
